@@ -1,47 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
-<PP xmlns="https://niap-ccevs.org/cc/v1" name="Protection Profile QQQQ"
+<PP xmlns="https://www.nsa.gov/resources/everyone/csfc/" name="Data at Rest Capability Package"
     xmlns:h="http://www.w3.org/1999/xhtml">
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
   <PPReference>
     <ReferenceTable>
-      <PPTitle>Protection Profile for QQQQ</PPTitle>
+      <PPTitle>Data at Rest Capability Package</PPTitle>
       <PPVersion>1.0</PPVersion>
-      <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2015-08-14</PPPubDate>
-      <Keywords>QQQQ</Keywords>
+      <PPAuthor>Commercial Solutions for Classified</PPAuthor>
+      <PPPubDate>2020-10-21</PPPubDate>
+      <Keywords>CSfC</Keywords>
     </ReferenceTable>
   </PPReference>
 
   <RevisionHistory>
     <entry>
-      <version>Round 1</version>
-      <date>2015-04-23</date>
-      <subject>First draft of version 1.0 for comment</subject>
+      <version>Version 0.8</version>
+      <date>2014-07-01</date>
+      <subject>Initial draft of CSfC Data-at-Rest (DAR) requirements</subject>
+    </entry>
+    <entry>
+      <version>Version 1.0</version>
+      <date>2014-09-01</date>
+      <subject>Official release of CSfC DAR requirements
+        <ul>
+          <h:li>Introduced SWFDE/FE (SF) Solution Design</h:li>
+          <h:li>Aligned with SW FDE Protection Profile(PP) 1.0 and FE Extended Package (EP) 1.0
+          </h:li>
+        </ul>
+      </subject>
+    </entry>
+    <entry>
+      <version>Version 1.8</version>
+      <date>2014-10-01</date>
+      <subject>Initial draft of CSfC Data-at-Rest (DAR) Version 2 requirements</subject>
+    </entry>
+    <entry>
+      <version>Version 2.0</version>
+      <date>2014-12-01</date>
+      <subject>Official release of CSfC DAR Version 2 requirements
+        <ul>
+          <h:li>Added PE/FE (PF) Solution Design</h:li>
+          <h:li>Aligned with MDF PP 3.0</h:li>
+      </ul>
+      </subject>
+    </entry>
+    <entry>
+      <version>Version 2.8</version>
+      <date>2015-05-01</date>
+      <subject>Initial draft of CSfC Data-at-Rest (DAR) Version 3 requirements</subject>
+    </entry>
+    <entry>
+      <version>Version 3.0</version>
+      <date>2016-03-01</date>
+      <subject>Official release of CSfC DAR Version 3 requirements
+        <ul>
+          <h:li>Added HWFDE/FE and HWFDE/SW FDE (HF and HS) Solution Design</h:li>
+          <h:li>Updated requirements to reflect new FDE Collaborative Protection Profile(cPP) 2.0</h:li>
+          <h:li>Discussed the associated Independent Software Vendor (ISV) technology which aligns with the FDE cPP 2.0</h:li>
+          <h:li>Added Lost and Found (LF) use case</h:li>
+        </ul>
+      </subject>
+    </entry>
+    <entry>
+      <version>Version 3.8</version>
+      <date>2017-01-01</date>
+      <subject>Initial draft of CSfC Data-at-Rest (DAR) Version 4 requirements</subject>
+    </entry>
+    <entry>
+      <version>Version 4.0</version>
+      <date>2018-01-01</date>
+      <subject>Official release of CSfC DAR Version 4 requirements
+        <h:ul>
+          <h:li>Added Removable Media (RM) Solution Component and Solution Design</h:li>
+          <h:li>Added continuous physical control(previously positive control) guidance</h:li>
+          <h:li>Added random password generation</h:li>
+          <h:li>Added secure file deletion guidance</h:li>
+          <h:li>Added optional two-factor authentication</h:li>
+          <h:li>Relocated Threat Section to a separate document available on the CSfC webpage</h:li>
+          <h:li>Removed the Testing Section to a separate DAR Testing Annex document</h:li>
+          <h:li>Changed DAR-PE-5 from minimum of 4 characters to minimum of 6 characters</h:li>
+        </h:ul>
+      </subject>
+    </entry>
+    <entry>
+      <version>Version 4.8</version>
+      <date>2019-10-01</date>
+      <subject>Initial draft of CSfC Data-at-Rest (DAR) Version 5 requirements
+        <h:ul>
+          <h:li>Added Enterprise Management(EM) Use Case</h:li>
+          <h:li>Added Unattended Operations(UO) Use Case</h:li>
+          <h:li>Added Hardware FDE/Hardware FDE (H/H) Solution Design</h:li>
+          <h:li>Added “optional” DAR Location Services capability</h:li>
+          <h:li>Added guidance for Implementing CSfC in a High Assurance GOTS Environment</h:li>
+          <h:li>Updated glossary and acronym list</h:li>
+          <h:li>Removed Table 17: Lost and Found requirements table; alternatively, dispersed the requirements into
+            existing tables, now identifiable as “LF” in the “Use Case” column. </h:li>
+        </h:ul>
+      </subject>
     </entry>
   </RevisionHistory>
 
-  <RevisionHistory>
-    <entry>
-      <version>1.0</version>
-      <date>2015-08-14</date>
-      <subject>Release - first version released</subject>
-    </entry>
-  </RevisionHistory>
 
   <chapter title="Introduction" id="int">
-    <section title="Overview" id="ppoverview">
-
-
-The scope of this Protection Profile (PP) is to
-      describe the security functionality of QQQQ products in terms of <cite linkend="bibCC"/>
-      and to define functional and assurance requirements for such products.
-      An operating system is software that manages computer hardware and software
-      resources, and provides common services for application programs. The hardware
-      it manages may be physical or virtual.
-
+    <section>
+<!--
       <h:p> This is going to show some tests:
  	<h:ul>
 	  <h:li> Terms with abbrs like ASLR, or API, should be found a linked automatically.</h:li>
@@ -61,7 +126,463 @@ The scope of this Protection Profile (PP) is to
           <h:li> <h:div><depends on="selection"><uid>aaa</uid></depends> Some text </h:div> </h:li> 
         </h:ul>
       </h:p>
+      -->
+      
+      <h:p>The Commercial Solutions for Classified (CSfC) Program within the National Security Agency (NSA)
+      Capabilities Directorate publishes Capability Packages (CP) to provide architectures and configuration
+      requirements that empower IA customers to implement secure solutions using independent, layered
+      Commercial Off-the-Shelf (COTS) products. The CPs are product-neutral and describe system-level
+      solution frameworks, documenting security and configuration requirements for customers and/or
+      Integrators. It is recommended that CSfC Trusted Integrators be employed to architect, design,
+      integrate, test, document, field, and support the solution. The list of CSfC Trusted Integrators can be
+      found at: https://www.nsa.gov/resources/everyone/csfc/trusted-integrators.
+      </h:p>
+      
+      <h:p>This generic CSfC Data-at-Rest (DAR) CP meets the demand for DAR solutions using Commercial National
+      Security Algorithm (CNSA) Suite. These algorithms are used to protect classified data using layers of
+      COTS products. The DAR CP version 4.8 enables customers to implement two independent layers of
+      encryption for the purpose of providing protection for stored information on the End User Device (EUD)
+      or DAR protected system, while in a powered off or unauthenticated state, defined in Section 4.2.1. This
+      CP takes lessons learned from one proof-of-concept demonstration per solution design that has
+      implemented the CNSA Suite, modes of operation, standards, and protocols. These demonstrations
+      included a layered use of COTS products for the protection of classified information.</h:p>
+      
+      <h:p>The DAR CP is focused on the implementation of cryptography to mitigate the risk to classified data from
+      unauthenticated access when the device is powered off or unauthenticated. This CP does not protect
+      against malicious code exploits and potential vulnerabilities from updates, operating system (OS)
+      misconfigurations, or the persistence of remnants of key or plaintext material in volatile memory on the
+      EUD when powered on, as these conditions are outside of the scope for this version of the CP.</h:p>
+      
+      <h:p>While CSfC encourages industry innovation, trustworthiness of the components is paramount.
+      Customers and their Integrators are advised that modifying a National Information Assurance
+      Partnership (NIAP)-validated component in a CSfC solution may invalidate its certification and require a
+      revalidation process. To avoid delays, customers and Integrators who feel it is necessary to modify a
+      component should engage the component vendor and consult NIAP through their Assurance Continuity
+      Process (https://www.niap-ccevs.org/Documents_and_Guidance/ccevs/scheme-pub-6.pdf) to
+      determine whether such a modification will affect the component’s certification.</h:p>
+      
+      <h:p>In case of a modification to a component, NSA’s CSfC Program Management Office (PMO) will require
+      the component to successfully complete the NIAP Assurance Maintenance Continuity process.
+      Modifications that will trigger the revalidation process include, but are not limited to: configuring the
+      component in a manner different from its NIAP-validated configuration, and modifying the Original
+      Equipment Manufacturers’ code (to include digitally signing the code).</h:p>
     </section>
+    
+    <chapter title="Purpose and Use" id="purpose">
+      <section>
+        <h:p>This CP provides high-level reference designs and corresponding configuration requirements that allow
+        customers to select COTS products from the CSfC Components List available on the CSfC web page
+        (https://www.nsa.gov/resources/everyone/csfc/components-list), for their DAR solution and then to
+        properly configure those products to achieve a level of assurance sufficient for protecting classified data
+        while at rest. As described in Section 9, customers must ensure that the components selected from the
+        CSfC Components List will provide the necessary functionality for the selected capabilities. To
+        successfully implement a solution based on this CP, all Threshold Requirements, or the corresponding
+        Objective Requirements applicable to the selected capabilities, must be implemented, as described in
+        Sections 8 - 12.</h:p>
+        
+        <h:p>This document, the CSfC Data-at-Rest CP version 4.8, dated October 2019, has not been approved by the
+        Deputy National Manager (D/NM) for National Security Systems and is being released solely for the
+        purpose of soliciting public comments.
+        Please provide comments on usability, applicability, and/or shortcomings to your NSA/IA Client
+        Advocate and the DAR Capability Package maintenance team at CSfC_DAR_team@nsa.gov. DAR CP
+        solutions must also comply with the Committee on National Security Systems (CNSS) policies and
+        instructions. Any conflicts between CNSS or local policy and this CP should be provided to the DAR CP
+        Maintenance team.</h:p>
+        
+        <h:p>Additional information about the CSfC process is available on the CSfC web page
+          (https://www.nsa.gov/resources/everyone/csfc).</h:p>
+      </section>
+      <section title="Implementing CsfC in a High Assurance GOTS Environment" id="ImpGOTS">
+        <h:p>Another option available to users of CSfC, is the concept of a blended solution that will use a CSfC
+        solution, in combination with a High Assurance Government-off-the-Shelf (GOTS) solution. For these
+        blended solutions, a High Assurance GOTS solution can be used to replace the entire function of a
+        Capability Package as a whole, but not the individual layers of a solution or security functions provided
+        by one of the layers. While CSfC uses two layers of encryption, this is not required with High Assurance
+        GOTS, where a single layer of encryption is sufficient. For example, if desired, a CSfC DAR solution can
+        be employed in an infrastructure where network High Assurance Internet Protocol Encryptors (HAIPEs)
+        are also being used. The DAR solution is segmented, and its protection is provided by CSfC, while the
+        protection of the network that the information transits is provided by a High Assurance GOTS solution.
+        For additional details or questions about this process, please contact the CSfC PMO office at
+        csfc@nsa.gov.</h:p>
+      </section>
+    </chapter>
+    <chapter title="Legal Disclaimer" id="legal">
+      <section>
+        <h:p>This CP is provided “as is.” Any express or implied warranties, including but not limited to, the implied
+        warranties of merchantability and fitness for a particular purpose are disclaimed. In no event must the
+        United States (U.S.) Government be liable for any direct, indirect, incidental, special, exemplary or 
+        consequential damages (including, but not limited to, procurement of substitute goods or services, loss
+        of use, data, profits, or business interruption) however caused and on any theory of liability, whether in
+        contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of
+        this CP, even if advised of the possibility of such damage.</h:p>
+        
+        <h:p>The User of this CP agrees to hold harmless and indemnify the U.S. Government, its agents and
+        employees from every claim or liability (whether in tort or in contract), including attorney’s fees, court
+        costs, and expenses, arising in direct consequence of recipient’s use of the item, including, but not
+        limited to, claims or liabilities made for injury to or death of personnel of user or third parties, damage
+        to or destruction of property of user or third parties, and infringement or other violations of intellectual
+        property or technical data rights.</h:p>
+        
+        <h:p>Nothing in this CP is intended to constitute an endorsement, explicit or implied, by the U.S. Government
+        of any particular manufacturer’s product or service.
+        </h:p>
+      </section>
+    </chapter>
+    
+    <chapter title="Data-at-Rest Protection Overview" id="DARoverview">
+      <section>
+        <h:p>The goal of the DAR solution is to protect classified data when the EUD is powered off or
+        unauthenticated. Unauthenticated, in this case, means prior to a user presenting and having their
+        credentials (i.e., password, tokens, etc.) validated by both layers of the DAR solution. Specific data to be
+        protected must be determined by the data owner.</h:p>
+        
+        <h:p>In this CP, when the term “EUD” is used, it is referring to anything that is being employed with two
+        layers of CSfC DAR protection. Based on the context and wording of some of the CP language, other
+        terms such as system, DAR solution, or device may be used. These terms can be used interchangeably
+        depending on the context, the specific customer use case being implemented, and based on what the
+        customer chooses to protect. This definition is further explained in detail in Section 5.5.</h:p>
+      </section>
+      <section title="Rational for Layered Encryption" id="RationalLayered">
+        <h:p>A single layer of CNSA encryption, properly implemented, is sufficient to protect classified DAR. The
+        DAR solution uses two layers of CNSA encryption, not because of a deficiency in the cryptographic
+        algorithms, but rather to mitigate the risk that a failure in one of the cryptographic components: by
+        accidental misconfiguration, operator error, or malicious exploitation of an implementation
+        vulnerability, resulting in the exposure of classified information. The use of multiple layers,
+        implemented with components meeting the CSfC vendor diversity requirements, reduces the likelihood
+        that a single vulnerability can be exploited to reveal protected information.</h:p>
+        
+        <h:p>If one of the encryption layers is compromised or fails in some way, the second layer can still provide the
+        needed encryption to safeguard the classified data. If both layers are compromised or fail
+        simultaneously, it is possible the classified data will become readable to a threat actor. The goal of the
+        DAR solution is to provide redundant protection that either minimizes the possibility of both layers
+        failing at the same time or requires an adversary to defeat both mechanisms.</h:p>
+      </section>
+      
+      <section title="Solution States" id="states">
+        <h:p>The DAR solution states are identified and described in further detail in this section. Note, that once a
+          device is considered classified (e.g., Powered-On with Outer Layer Authenticated State) it will not be
+          considered unclassified (must still be handled in accordance with the implementing organizations’
+          Authorizing Official (AO) policies) again until the device is powered-down.</h:p>
+        <subsection title="EUD Solution States" id="eudstates">
+          <h:b>Powered-Off State:</h:b>
+          <h:p>In a powered-off state, the device is completely off and not in any power saving state. The EUD is
+          considered unclassified, but must still be handled in accordance with the implementing organizations’
+          AO policies. This applies to all removable media (RM) when unplugged from the host system. If the RMs
+          have their own power states, the product documentation must be consulted to determine how to
+          independently switch the product into a powered-off state.</h:p>
+          
+          <h:b>Powered-On and Unauthenticated State:</h:b>
+          <h:p>In a powered-on and unauthenticated state, the EUD is completely on, but the user has not initially
+          logged into either layer. The EUD is considered unclassified, but must be handled in accordance with
+          the implementing organizations’ AO policies. This state cannot be entered by logging off after initial
+          logon. This applies to all removable media when plugged into the host system.</h:p>
+          
+          <h:b>Powered-On with Outer Layer Authenticated State:</h:b>
+          <h:p>In a powered-on state with the outer layer authenticated, the EUD is operational where the user has
+          authenticated to the outer layer of encryption. The device in this state is considered classified and
+          should be handled accordingly. This applies to all removable media when plugged into the host system.
+          Powered-On with Outer and Inner-Layer Authenticated State:
+          In a powered-on state with the outer and inner-layer authenticated, the EUD is operational when the
+          user has authenticated to two layers of DAR encryption. The device in this state is considered classified
+          and should be handled accordingly. This applies to all removable media when plugged into the host
+          system.</h:p>
+          
+          <h:b>Locked or Logged Out State:</h:b>
+          <h:p>In a locked or logged out state, the device is powered-on but most of the functionality is unavailable for
+          use. User authentication is required to access functionality. This functions as an access control and may
+          provide one layer of DAR protection. The device in this state is considered classified and should be
+          handled accordingly. This applies to all removable media when plugged into the host system.</h:p>
+        </subsection>
+        <subsection title="Enterprise Management (EM) Server and Mission Control Element (MCE) Solution States" id="emstates">
+          <h:b>Always on State:</h:b>
+          <h:p>The “always on state” in this section applies to the server that is acting as part of a remote access
+            architecture or a client-server architecture, controlling the DAR enterprise managed solution. This state
+            does not apply to the server that is acting as a DAR EUD with two layers of protection. The “EUD
+            Solution States,” described above in Section 4.2.1, is only applicable to a server, if that server is acting as
+            the DAR EUD being provisioned with two encryption layers to protect the server’s storage. In this CP, it is
+            assumed that the EM server, base station, or MCE will be protected within a secured facility, as
+            prescribed by the AO (e.g., Sensitive Compartmented Information Facility (SCIF), secured room, etc.).
+            This CP does not provide sufficient mechanisms to protect classified data on the EM server, unless that
+            server is also treated as a DAR EUD and is protected with two layers of DAR. In an always on state, the
+            DAR enterprise management server, the base station, or the Mission Control Element (MCE) is always
+            powered on to keep processes up and running. Additional details about these components and
+            solutions, can be found in Sections 5.6, 7.3, and 7.4.</h:p>
+        </subsection>
+      </section>
+      
+      <section title="DAR CNSA Suite" id="cnsa">
+        <h:p>As the portability of EUDs increases, the requirements for when and how classified data is protected
+        also increases. EUDs can be used in both physically protected and physically unprotected environments.
+        Solutions using commercial products must protect classified data on the EUD by using two layers of
+        encryption with the approved CNSA Suite. The solutions presented in this CP have specific requirements
+        for configuration, product selection, components, provisioning, authentication, key management,
+        operations, administration, roles, and use and handling.</h:p>
+        <h:table title="Table 1: Approved Commercial National Security Algorithm (CNSA) Suite for DAR" id="table1">
+          <h:tr class="header"><h:td>Security Service</h:td><h:td>CNSA Suite Standards</h:td><h:td>Specifications</h:td></h:tr>
+          <h:tr><h:td>Confidentiality (Encryption)</h:td><h:td>AES-256</h:td><h:td>FIPS PUB 197</h:td></h:tr>
+          <h:tr><h:td>Authentication</h:td><h:td>Elliptic Curve Digital Signature Algorithm over the curve P-384 with SHA-384 
+            <h:br/><h:br/> RSA 3072 (Minimum)</h:td><h:td>FIPS PUB 186-4<h:br/><h:br/>FUPS PUB 186-4</h:td></h:tr>
+          <h:tr><h:td>Integrity (Hashing)</h:td><h:td>SHA-384</h:td><h:td>FIPS PUB 186-4</h:td></h:tr>
+          <h:tr><h:td>Can Protect</h:td><h:td>Up to Top Secret</h:td><h:td>--------</h:td></h:tr>
+        </h:table>
+        <h:p>IA will initiate a transition to quantum resistant algorithms in the not too distant future. IA customers
+          using layered commercial solutions to protect classified national security information with a long
+          intelligence life should begin implementing a layer of quantum resistant protection. Such protection 
+          may be implemented today through the use of large symmetric keys coupled with specific secure
+          protocol standards. For more information please go to https://apps.nsa.gov/iaarchive/programs/iadinitiatives/cnsa-suite.cfm. </h:p>
+      </section>
+      
+      <section title="Authentication" id="auth">
+        <h:p>In the capability package, each layer is required to have a “known secret” (i.e., PIN, password, or
+        passphrase), smartcard, or Universal Serial Bus (USB) token to authenticate to each of the two
+        encryption layers. The permitted factors may differ based on the layer. DAR encryption products must
+        meet requirements for each of these factors during evaluation against the applicable protection profile
+        (PP). These are considered primary (validated) authentication factors for that component.</h:p>
+        
+        <h:p>Many products offer alternate authentication mechanisms. When implementing the DAR solution,
+        these alternate mechanisms may be used only as a secondary (non-validated) authentication factor and
+        must be paired with a primary authentication factor. Secondary factors may act as an additional access
+        control or may contribute to the product’s key chain; the product’s protection profile evaluation
+        guarantees there is no loss in strength when combining keys with potentially weaker sources. A layer
+        may use any number of authentication factors as long as one is a primary factor, as listed in that
+        component’s specific authentication requirement. As an example, layer one may use a known secret
+        (primary factor) along with a biometric (secondary factor), and layer two may use a smartcard. It is
+        important to consider the requirements, benefits, and drawbacks associated with different
+        authentication factors. Some considerations of popular factors are discussed below.</h:p>
+        
+        <h:p>Known secrets are memorized values that can provide a strong authentication value if well chosen (see
+        Appendix A) and are typically supported by almost all products. They are at risk of being forgotten, as
+        well as being seen while being keyed into the device. The majority of the time, known secrets will be
+        weaker than tokens and are at risk of being very weak if not properly chosen.</h:p>
+        
+        <h:p>Smartcard tokens are small integrated circuit devices that can store authentication keys. As long as they
+        are handled and stored properly, they provide a very strong form of authentication. They provide a
+        flexible option for authenticating a user to many devices and providing additional security through the
+        use of a PIN to use the card. Aside from the benefits, cards are susceptible to loss and damage. In
+        addition, they may require a separate system for provisioning and recovery.</h:p>
+        
+        <h:p>USB tokens are a simple form of token that provides a very strong form of authentication as long as they
+        are handled and stored properly. Although very easy to provision, they generally have no additional
+        security features, unless the USB device itself provides those features. Unfortunately, they are not
+        permitted in many places.</h:p>
+        
+        <h:p>Biometric technology functions by taking a measurement of an element of the user’s body. Common
+        examples are fingerprints, iris scans, and facial recognition. This measurement is compared against a
+        template that is created during provisioning; if the measurement matches the template, the user is
+        authenticated. The vendor may use this authentication as an access control or may release a key to
+        contribute to decryption. If a key is used, it will be important to ask how that key is protected and what 
+        authorizes the key’s release, as there are currently no methods being used to derive a biometric
+        measurement into a key. When using biometrics there may be instances when unauthorized users will
+        be authenticated to the biometric when they should not; this is called a false acceptance, and is a
+        condition with which all biometrics have to contend. Customers should obtain vendors’ False
+        Acceptance Rates (FAR) and determine how comprehensive their testing was to determine that rate.
+        The other rate to address is the False Rejection Rate (FRR), which is when an authorized user’s
+        measurements fail to authenticate. This is a usability concern and should also be discussed with the
+        vendor. The biometric template used to compare measurements is intended to be constructed so that
+        the user’s measurements are not reversible. If an adversary was able to obtain the template, they
+        would be unable to reconstruct the user’s fingerprint. However, this is not always the case; templates
+        are not well standardized and there have been cases of reconstruction. This may be a risk to the privacy
+        of users. One of the major risks of biometric is spoofing. This involves using other technology to
+        recreate the user’s measurement. Examples of spoofing include taking photos of the user’s face or
+        lifting fingerprints. The vendor should explain how they mitigate spoofing, and users should protect the
+        area being used to authenticate. Many biometrics need a fallback mechanism in case the area being
+        used to authenticate to the biometric system becomes damaged, such as a finger being cut.</h:p>
+        
+        <h:p>Consideration should be given to what the fallback mechanism is or the consequences if there is none.
+        Near Field Communication (NFC) is a short range signal. Generally, the devices are placed adjacently or
+        in contact to exchange information in this method. This signal can vary in how it is used during the
+        authentication process. There may or may not be an exchange of key material. The details of what is
+        exchanged will need to be discussed with the vendor. Regardless of what is exchanged, the devices
+        should be kept apart and treated like a Smartcard or USB token. NFC may not be permitted if the
+        solution must also comply with other CPs that don’t permit it.</h:p>
+        
+        <h:p>Behavior based authentication covers a wide variety of features. The goal is to determine if an
+        authorized user has the device, based on whether the device is being used and handled the way the
+        authorized user normally uses the device. Based on this information the device may release a key,
+        provide an access control, or allow for a longer time before locking the device. Factors that are taken
+        into account, include: account are location, connected networks, gyroscope measurements, user
+        interaction, and other internal sensors.</h:p>
+      </section>
+      
+      <section title="Continuous Physical Control" id="control">
+        <h:p>Although the DAR solution can protect the confidentiality of data and render the EUD unclassified, it
+        does not protect the integrity of an EUD outside the control of approved users. It is difficult to examine
+        and determine whether or not a device has been tampered with; therefore, the EUD must remain in
+        continuous physical control at all times. The NSA requires that implementing organizations define the
+        circumstances in which an EUD that is part of the solution is considered outside of the continuous
+        physical control of authorized users (i.e., "lost"). The AO will define “continuous physical control”, and
+        this definition should align with the intended mission and threat environment for which the solution will
+        be deployed. Each organization must also define the circumstances in which an EUD that is a part of the 
+        solution is to be considered recovered, and into the continuous physical control of authorized users (i.e.,
+        "found").</h:p>
+        
+        <h:p>This concept includes mechanisms for the Unattended Operations Use Case (described in Section 7.4).
+        AO’s should have a variety of mechanisms to ensure control of the EUD is maintained via cameras,
+        sensors, and other similar means. The exact means are out of scope of the DAR CP, but there should be
+        a high degree of confidence that the EUD is not susceptible to unauthorized access.</h:p>
+        
+        <h:p>This CP requires any lost device, once found, to be rigorously investigated and/or destroyed in order to
+        mitigate threats to the integrity of the EUD and any connected systems, because upon being found, the
+        device is considered not secure unless the device meets Lost and Found (LF) requirements that are
+        indicated as “LF” in the Use Case column in the requirements table. AOs should consult the DAR CP Risk
+        Assessment (RA) to help make an informed risk decision.</h:p>
+        
+        <h:p>See Appendix F for additional requirement information and some examples of continuous physical
+        control.</h:p>
+      </section>
+      
+      <section title="Red, Gray, and Black Data" id="rgb">
+        <h:p>This CP uses the following terminology to describe the data types that compose a DAR solution. The
+        terms Red, Gray, and Black identify the number of encryption layers applied to classified data for a
+        specific EUD state.</h:p>
+        
+        <h:p>Red data is unencrypted classified data being processed by the EUD. After a user successfully
+        authenticates to the outer and inner layers of DAR encryption, the EUD is in a state of processing Red
+        data.</h:p>
+        
+        <h:p>Gray data contains classified information that has been encrypted once. After a user successfully
+        authenticates to the outer layer of DAR encryption, but has not yet authenticated to the inner layer of
+        encryption, the EUD is in a state of processing Gray data.</h:p>
+        
+        <h:p>Black data contains classified information that has been encrypted twice. An EUD is considered black
+        when the device is powered off and/or unauthenticated and the stored data has been encrypted with
+        both the outer and inner layers of DAR encryption.</h:p>
+      </section>
+      
+      <section title="Cryptographic Erase (CE)" id="ce">
+        <h:p>Cryptographic Erase (CE), is a method of sanitization in which an encryption key for the encrypted data
+        is sanitized, making recovery of the decrypted data infeasible. In this document CE is used to ensure
+        clean re-provisioning, as an additional protection triggered by a failed authentication, or as an
+        emergency method of sanitizing the media, in the event proper destruction methods cannot be met (see
+        DAR-EU-2 in Table 12).</h:p>
+      </section>
+      
+      <section title="Provisioning" id="provisioning">
+        <h:p>Provisioning is the process through which EUDs are initialized before first use. During the provisioning
+          process, the Security Administrator (SA) loads and configures the DAR components for the EUD.</h:p>
+        
+        <h:p>Provisioning is inherently an out-of-band process requiring physical access to the EUD. The DAR solution
+        cannot be applied to an EUD that already has data stored on it.</h:p>
+        
+        <h:p>EUD re-provisioning or reuse of DAR components is allowed as long as it is performed in accordance
+        with this CP. If re-provisioning, the EUD must be at the same or higher classification level of the
+        previous unencrypted data stored on the approved DAR solution. Prior to re-provisioning an EUD, old
+        data should be removed via cryptographic erase or media zeroization. Re-provisioning EUD components
+        from any non-CSfC solution is prohibited. </h:p>
+      </section>
+      
+      <section title="Secure File Deletion" id="delete">
+        <h:p>When deleting files via normal means (i.e., deleting followed by emptying the recycle bin, shift + delete,
+          etc.) from the computer, there is a possibility for residual data to remain on the underlying storage
+          media for extended periods of time, recoverable by forensic techniques. While the DAR CP requires
+          multiple layers of encryption and tries to mitigate user error, it is still possible for the device to be
+          compromised; in that event, securely deleting files reduces the information available to the adversary.
+          For these reasons, it is recommended to use applications to securely delete files.</h:p>
+        
+        <h:p>Secure file deletion tools make use of more direct methods to mitigate the risk of data being
+          recoverable. Since there is not currently a method of validation for providing secure file deletion, here
+          are some recommendations for features to include when acquiring a secure file deletion product. When
+          looking for a product to fulfill this purpose, the type of storage media must be considered. There are
+          currently two primary storage drives used today, hard disk drives (HDD) and solid state drives (SSD).
+          Flash USB drives fall into the same area as SSDs.</h:p>
+        
+        <h:p>Normally when a file is deleted from a HDD, the reference to that file’s content is removed. The
+          majority of the data will continue to reside on the disk, being treated as free space for new data to use.
+          This makes the role of a third party product straightforward. It should claim to directly overwrite the file
+          reference and file data with any value, as long as that value cannot contain sensitive data, such as the
+          contents of random access memory (RAM). Products may provide options for performing multiple
+          passes, but is not necessary, as a single pass provides sufficient security. However, if only multiple
+          passes are supported, they will not cause any harm.</h:p>
+        
+        <h:p>In order to understand the residual risk, it is important to understand the basics of the complications
+          involved in erasing memory from a SSD. When a user deletes a file, the drive will mark that area as free
+          space, but will not actually overwrite the data. This is for performance reasons, the memory used by the
+          SSD must be cleared before being written to again, which takes time. The drive works in conjunction
+          with the operating system to perform this task in the background when the drive does not have more
+          important tasks. Because of this, it is not possible for a third party file deletion tool to directly overwrite
+          data. There is also an upside, as regular deletion can eventually result in a direct overwrite, unlike HDDs
+          where the data can remain for long periods of time. Because of this, third party tools are not necessary,
+          and files may be deleted via normal means. However, there are other factors that effect when the SSD
+          drive’s background overwrite process can take place. The restrictions below detail configurations which 
+          a user can exert control. There are other situations where a user cannot exert control, which has the
+          potential to result in data residing on the SSD for an extended undefined period of time. This is
+          acceptable since any residual data should be encrypted. If any of the restrictions below apply, some
+          third party products may be able to overcome them. Otherwise, the product should issue commands
+          that enable the SSD to clear memory as soon as possible.</h:p>
+        
+        <h:ul>
+          <h:li>TRIM, the command issued to the SSD to clear space, may not be supported by the operating
+          system. Most modern operating systems do support this command; check operating system
+          documentation to ensure support for TRIM.</h:li>
+         <h:li>The TRIM command may only be supported by the OS if certain file systems are being used.
+          Check vendor documentation to ensure a compatible file system is used.</h:li>
+         <h:li>The way this is checked varies between operating systems. Check operating system
+          documentation on how to verify TRIM is enabled.</h:li>
+         <h:li>Older SSDs may not support the TRIM command. The majority of modern drives do have
+          support; check vendor documentation to ensure the device supports this command.</h:li>
+         <h:li>The operating system may not support TRIM for external drives, USB flash drives, or other
+          devices connected over USB, PCI E, M.2 and other interfaces. This is a common area where a
+          third party product may provide additional benefit.</h:li>
+         <h:li>The operating system may not support TRIM when a Redundant Array of Independent Disks
+          (RAID) configuration is used.</h:li>
+        </h:ul>
+          
+          <h:p>DAR products that support encrypted volumes may interfere with the TRIM command for data within
+          the volumes. Some products do enable TRIM to function within the encrypted volumes, check vendor
+          documentation for verification</h:p>
+        
+      </section>
+      
+      <section title="DAR Location Based Services" id="location">
+        <h:p>Data-at-Rest protection can include capabilities that restrict access and authorization to a device based
+          on the EUD’s location, through the use of location aware technology. In this CP, a customer has the
+          option of employing DAR location aware technology as an added feature to a DAR solution. This does
+          not replace either of the two mandatory encryption layers required in a CSfC DAR solution, but is only
+          used as a supplemental means of protection, for defense in depth. Currently, there are no PPs to
+          validate this type of technology. If customers choose to implement DAR location services, the customer
+          should consult with the vendor and ask about specific details concerning the mechanisms and
+          methodologies used in their product.</h:p>
+        
+          <h:p>DAR location services provides for precise geolocation of DAR devices using methods such as, WPS (WiFi Positioning System), GPS (Global Positioning System), and RFID (Radio Frequency Identification). WPS
+          achieves precision geolocation using a layered approach and may provide more accurate and reliable
+          geolocation for DAR systems that are operated within a building, whereas GPS may be effective in
+          outdoor locations. The precision geolocation of a DAR device configured for a DAR location service is a
+          precursor to successfully managing a variety of unattended secure DAR storage operations through the
+          location aware storage domain. These storage operations include:</h:p>
+        
+        <h:ul>
+          <h:li>Storage function isolation to minimize possibility of interference</h:li>
+          <h:li>Reliable location determination within 802.11 wireless environments</h:li>
+          <h:li>Location driven DAR operation that can only be operated within fixed boundaries</h:li>
+          <h:li>Secure domain within a building driven by security policy</h:li>
+        </h:ul>
+          
+          <h:p>DAR RFID based mobility services provides an added layer of assurance to DAR mobility by enabling
+          administrators to track and control the location and movement of DAR devices within the confines of a
+          building or enclave. This may be achieved by creating policies for individual devices depending on one
+          or more of the following mobility related parameters:</h:p>
+          
+          <h:ul>
+        <h:li>Physical location – Maintain continued device location status and confirm that uninterrupted
+          physical control (as defined by the AO) is in effect.</h:li>
+         Network connectivity – Provide validation of device presence within approved spaces for preboot and decryption.
+        <h:li>Time-based operation –Revoke keys and initiate full-disk erase if the device remains outside of
+          approved spaces beyond an authorized time period.</h:li>
+        <h:li>Encryption enforcement –Initiate a power down or a key revocation to enforce DAR encryption
+          when a device is removed from approved spaces.</h:li>
+          </h:ul>
+        
+          
+          <h:p>When a device exceeds or violates any of the mobility related parameters, the RFID based service
+          executes appropriate measures to ensure the integrity and security of data stored in the device are
+          maintained. These measures can include key revocation, crypto erase, device power down, etc. </h:p>
+        
+      </section>
+
+
+
+      </chapter>
+    
     <tech-terms>
       <term abbr='AES' full="Advanced Encryption Standard"/>
       <term abbr='API' full="Application Programming Interface"/>
